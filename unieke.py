@@ -10,6 +10,7 @@ import hashlib
 import os
 import json
 
+__manifest_dir__ = "db"
 __manifest_file_name__ = "manifest"
 __content_dir__ = os.path.abspath(os.path.join(os.path.dirname( __file__ ), 'content'))
 
@@ -60,8 +61,12 @@ def check_permissions():
 
 ###############################################################################################
 def initialize():
-    print "Initializing new unikeye manifest...done!\n\n"
-    generate_manifest()
+    if(os.path.isfile(__manifest_dir__ + "/" + __manifest_file_name__)):
+	print("\n** Warning: manifest file %s/%s already exists. Exiting\n")%(__manifest_dir__, __manifest_file_name__)
+    	sys.exit(2)
+    else: 
+        print "\n** Initializing new unieke manifest.\n\n"
+    	generate_manifest()
 
 ###############################################################################################
 def add_images():

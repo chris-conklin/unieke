@@ -10,13 +10,14 @@ import hashlib
 import os
 import json
 
+__short_ids__ = False
 __manifest_dir__ = "db"
 __manifest_file_name__ = "manifest"
 __content_dir__ = os.path.abspath(os.path.join(os.path.dirname( __file__ ), 'content'))
 
 banner = """
 ***************************************************
-***** UNIKEYE - Guardian of the family images *****
+***** UNIEKE - Guardian of the family images *****
 ***************************************************"""
 
 
@@ -30,7 +31,10 @@ def HashCalc(fpath):
    except:
       sys.exit()
    f.close()
-   return MD5
+   if(__short_ids__):
+      return MD5[:16]
+   else:
+      return MD5
 
 
 ###############################################################################################

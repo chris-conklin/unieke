@@ -12,7 +12,7 @@ import os
 import json
 
 __manifest_file_name__ = "manifest"
-__content_dir__ = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'content'))
+__content_dir__ = os.path.abspath(os.path.join(os.path.dirname( __file__ ), 'content'))
 
 banner = """
 ***************************************************
@@ -34,7 +34,7 @@ def HashCalc(fpath):
 
 
 ###############################################################################################
-def generate_manifest(manifest_path="../db"):
+def generate_manifest(manifest_path="db"):
     ''' Create a manifest file that contains the dictionary of hashes and filenames
         that is currently being used by the application. If one already exists it
         is backed up prior to a new manifest being created. ** WARNING: ** this

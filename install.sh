@@ -1,8 +1,6 @@
 #!/bin/bash
 
 
-# to create directories for use
-# fix later to check for existence
 
 create_directory()
 {
